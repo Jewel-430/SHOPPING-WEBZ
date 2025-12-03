@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Products | Shoppy Webzy Shop & Shipping</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Explore premium American products including iPhones, designer bags, sneakers, and skincare, all available for shipping." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <img src="logo.png" alt="American Express corporate logo" style="height: 45px; width: auto;" />
+      <div>
+        <div class="brand-title">Shoppy Webzy</div>
+        <div class="brand-sub">Shop & Shipping</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html" aria-current="page">Products</a>
+      <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="orders.html">Orders</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page" id="productsPage" role="main">
+    <h1>Our Products</h1>
+    <p class="small">Explore premium American products — iPhones, designer bags, shoes, and skincare essentials.</p>
+
+    <div class="products-grid">
+
+      <!-- iPhone -->
+      <div class="product card">
+        <img src="assets/iphone15.jpg" alt="Apple iPhone 15 Pro smartphone" loading="lazy" />
+        <h3>iPhone 15 Pro</h3>
+        <p class="small">Apple's latest titanium build with advanced camera technology.</p>
+        <p class="price">$999.00</p>
+        <button class="btn add-to-cart" data-id="1" data-title="iPhone 15 Pro" data-price="999.00">Add to Cart</button>
+      </div>
+
+      <!-- Michael Kors -->
+      <div class="product card">
+        <img src="assets/mk_tote.jpg" alt="Michael Kors designer handbag" loading="lazy" />
+        <h3>Michael Kors Designer Bag</h3>
+        <p class="small">Elegant leather handbag, perfect for everyday use and travel.</p>
+        <p class="price">$350.00</p>
+        <button class="btn add-to-cart" data-id="2" data-title="Michael Kors Bag" data-price="350.00">Add to Cart</button>
+      </div>
+
+      <!-- Nike Shoes -->
+      <div class="product card">
+        <img src="assets/airmax.jpg" alt="Nike Air Max running sneakers" loading="lazy" />
+        <h3>Nike Air Max Sneakers</h3>
+        <p class="small">Iconic American footwear known for comfort and performance.</p>
+        <p class="price">$180.00</p>
+        <button class="btn add-to-cart" data-id="3" data-title="Nike Air Max Shoes" data-price="180.00">Add to Cart</button>
+      </div>
+
+      <!-- CeraVe -->
+      <div class="product card">
+        <img src="assets/cerave.jpg" alt="CeraVe Moisturizing Lotion for healthy skin" loading="lazy" />
+        <h3>CeraVe Moisturizing Lotion</h3>
+        <p class="small">Dermatologist-recommended hydration for all skin types.</p>
+        <p class="price">$25.00</p>
+        <button class="btn add-to-cart" data-id="4" data-title="CeraVe Lotion" data-price="25.00">Add to Cart</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Shoppy Webzy Shop & Shipping. All Rights Reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+
+  <script>
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Update cart count
+    const cart = JSON.parse(localStorage.getItem('ae_cart') || '[]');
+    document.getElementById('cartCount').textContent = 
+      cart.reduce((s, i) => s + i.qty, 0);
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>American Express — Home</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Shop for electronics, fashion, accessories, and beauty products with American Express Shop & Shipping." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- SINGLE, CLEAN HEADER -->
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <img src="logo.png" alt="American Express logo" style="height: 40px; width: auto;" />
+      
+      <div>
+        <div class="brand-title">Shoppy Webzy</div>
+        <div class="brand-sub">Shop & Shipping • USA ➝ Kenya</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="orders.html">Orders</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container" role="main">
+    <div class="card">
+      <h2>Welcome to Shoppy Webzy Shop & Shipping</h2>
+      <p>Your best shopping companion for the latest iPhones, stylish bags, footwear, and skin care essentials — delivered right to your door.</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Shoppy Webzy Shop & Shipping
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Render cart count
+    const cart = JSON.parse(localStorage.getItem('ae_cart') || '[]');
+    const count = cart.reduce((s, i) => s + i.qty, 0);
+    document.getElementById('cartCount').textContent = count;
+  </script>
+</body>
+</html>

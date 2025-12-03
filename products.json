@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "sku": "IP14-PRO",
+    "category": "Phones",
+    "title": "iPhone 14 Pro",
+    "price": 999.00,
+    "img": "/assets/iphone14pro.jpg",
+    "description": "Apple iPhone 14 Pro with advanced camera system and A16 Bionic chip."
+  },
+  {
+    "id": 2,
+    "sku": "LEATHER-TOTE",
+    "category": "Bags",
+    "title": "Leather Tote Bag",
+    "price": 129.00,
+    "img": "/assets/leather_tote.jpg",
+    "description": "Premium handcrafted leather tote bag ideal for daily use."
+  },
+  {
+    "id": 3,
+    "sku": "RUN-SHOES",
+    "category": "Shoes",
+    "title": "Running Shoes",
+    "price": 89.00,
+    "img": "/assets/running_shoes.jpg",
+    "description": "Lightweight and comfortable running shoes for everyday training."
+  },
+  {
+    "id": 4,
+    "sku": "HYDRA-SERUM",
+    "category": "Skin Care",
+    "title": "Hydrating Serum",
+    "price": 39.00,
+    "img": "/assets/hydrating_serum.jpg",
+    "description": "Deep hydrating serum designed to improve skin texture and glow."
+  }
+]
