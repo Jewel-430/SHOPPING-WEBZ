@@ -1,0 +1,137 @@
+npm run seed
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run Guide | AE Backend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f8f9fa;
+      color: #222;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #0057a3;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #333;
+    }
+    code, pre {
+      background: #eee;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: block;
+      white-space: pre-wrap;
+      margin-bottom: 15px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AE Backend — Run & Setup Guide</h1>
+  <p>This guide explains how to run the American Express Shop & Shipping backend, seed the database, and launch the server in development or production mode.</p>
+
+  <!-- Requirements -->
+  <div class="card">
+    <h2>Requirements</h2>
+    <p>Ensure you have the following installed:</p>
+    <ul>
+      <li>Node.js 18+</li>
+      <li>Docker & Docker Compose</li>
+      <li>npm (comes with Node.js)</li>
+    </ul>
+  </div>
+
+  <!-- Install packages -->
+  <div class="card">
+    <h2>1. Install Dependencies</h2>
+    <pre>npm install</pre>
+  </div>
+
+  <!-- Docker instructions -->
+  <div class="card">
+    <h2>2. Start Postgres using Docker</h2>
+    <p>Spin up the database container defined in <strong>docker-compose.yml</strong>:</p>
+    <pre>docker compose up -d db</pre>
+    <p>This will create:</p>
+    <ul>
+      <li>Database: <strong>ae_db</strong></li>
+      <li>User: <strong>ae_user</strong></li>
+      <li>Password: <strong>ae_password</strong></li>
+    </ul>
+  </div>
+
+  <!-- Seed database -->
+  <div class="card">
+    <h2>3. Seed the Database</h2>
+    <p>The seed command loads the schema and sample products from <code>db/init.sql</code> using the improved seed script:</p>
+
+    <pre>npm run seed</pre>
+
+    <p>If using Docker for backend, ensure the container can reach Postgres using:</p>
+    <pre>postgresql://ae_user:ae_password@db:5432/ae_db</pre>
+  </div>
+
+  <!-- Start server -->
+  <div class="card">
+    <h2>4. Start Backend API</h2>
+
+    <h3>Development Mode</h3>
+    <pre>npm run dev</pre>
+
+    <h3>Production Mode</h3>
+    <pre>npm start</pre>
+
+    <p>The backend will run on:</p>
+    <code>http://localhost:3000</code>
+  </div>
+
+  <!-- API info -->
+  <div class="card">
+    <h2>5. API Endpoints</h2>
+
+    <p>Common endpoints available in <strong>server.js</strong>:</p>
+
+    <ul>
+      <li><code>GET /products</code> – List all products</li>
+      <li><code>GET /products/:id</code> – Product details</li>
+      <li><code>POST /orders</code> – Create new order</li>
+      <li><code>GET /orders/:ref</code> – Track an order</li>
+    </ul>
+  </div>
+
+  <!-- Troubleshooting -->
+  <div class="card">
+    <h2>6. Troubleshooting</h2>
+    
+    <p><strong>Database connection error?</strong></p>
+    <pre>Check DATABASE_URL in .env</pre>
+
+    <p><strong>Seed not running?</strong></p>
+    <pre>Ensure db/init.sql exists and Docker Postgres is running.</pre>
+
+    <p><strong>Port already in use?</strong></p>
+    <pre>Change PORT in .env</pre>
+  </div>
+
+  <footer>&copy; 2025 American Express Shop & Shipping — Developer Run Guide</footer>
+
+</body>
+</html>
