@@ -1,0 +1,381 @@
+/* =====================================
+   AMERICAN EXPRESS SHOP & SHIPPING
+   styles.css (Enhanced with Background)
+   ===================================== */
+
+/* ---- GLOBAL RESET ---- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+
+  /* Background: gradient + image overlay */
+  background: linear-gradient(
+      rgba(0, 48, 90, 0.7),
+      rgba(0, 112, 186, 0.6)
+    ),
+    url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1500&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ---- HEADER ---- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 112, 186, 0.85);
+  color: white;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(6px);
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.site-header .brand-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.site-header .brand-sub {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.site-header .mark {
+  background: white;
+  color: #0070ba;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 1rem;
+  transition: opacity 0.2s;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ---- CONTAINER ---- */
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ---- CARD ---- */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* ---- BUTTON ---- */
+.btn {
+  background: #0070ba;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.1s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #005b96;
+  transform: scale(1.03);
+}
+
+/* ---- PRODUCT GRID ---- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.product {
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+}
+
+.product h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.price {
+  font-weight: bold;
+  color: #0070ba;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- CART TABLE ---- */
+#cartTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#cartTable th,
+#cartTable td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#cartTable th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.cart-summary {
+  text-align: right;
+  font-size: 1.2rem;
+  margin-top: 16px;
+}
+
+/* ---- RESPONSIVE CART ---- */
+@media (max-width: 768px) {
+  #cartTable,
+  #cartTable thead,
+  #cartTable tbody,
+  #cartTable th,
+  #cartTable td,
+  #cartTable tr {
+    display: block;
+  }
+
+  #cartTable tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  #cartTable td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-summary {
+    text-align: center;
+  }
+}
+
+/* ---- STATUS COLORS ---- */
+.status-processing { color: #ff9800; }
+.status-shipped { color: #2196f3; }
+.status-delivered { color: #4caf50; }
+.status-cancelled { color: #f44336; }
+
+/* ---- FORM INPUT ---- */
+input, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.4rem 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  color: #fff;
+  background: rgba(0, 48, 90, 0.8);
+  backdrop-filter: blur(6px);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ---- RESPONSIVE HEADER ---- */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 0.8rem;
+  }
+
+  nav a {
+    margin: 0.4rem 0.8rem 0.4rem 0;
+    display: inline-block;
+  }
+}
+
+/* ========================
+   CONTACT PAGE
+======================== */
+.hero {
+  text-align: center;
+  margin: 40px 0;
+  color: #fff;
+  background: linear-gradient(120deg, #0047ab, #0074cc);
+  padding: 40px 20px;
+  border-radius: 12px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.contact-form .btn {
+  width: 100%;
+  background-color: #0047ab;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 12px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 12px;
+}
+
+.social-links img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    margin: 20px;
+    padding: 30px;
+  }
+}
+
+/* ========================
+   ORDERS PAGE
+======================== */
+.orders-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.order-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.order-header {
+  font-weight: bold;
+  color: #0047ab;
+}
+
+.order-items {
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.order-status {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #007b5e;
+}
+
+@media (max-width: 768px) {
+  .orders-list {
+    grid-template-columns: 1fr;
+  }
+  .track-history {
+  margin-top: 12px;
+  padding-left: 10px;
+  border-left: 3px solid #0070ba;
+}
+
+.track-item {
+  margin-bottom: 10px;
+  padding-left: 8px;
+}
+
+.track-item time {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.track-status {
+  font-weight: bold;
+  color: #0070ba;
+}
+
+}

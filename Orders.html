@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Your Orders | Shoppy Webzy Shop & Shipping</title>
+
+  <!-- SEO -->
+  <meta name="description" content="View your recent orders and shipping status from American Express Shop & Shipping." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <img src="logo.png" alt="American Express corporate logo" style="height: 45px; width: auto;" />
+      
+      <div>
+        <div class="brand-title">Shoppy Webzy</div>
+        <div class="brand-sub">Shop & Shipping</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="orders.html" aria-current="page">Orders</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page" id="ordersPage" role="main">
+    <h1>Your Orders</h1>
+    <p class="small">Below are your most recent purchases and their shipping status.</p>
+
+    <div id="ordersContainer" class="orders-list">
+      <!-- Orders dynamically inserted by app.js -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Shoppy Webzy Shop & Shipping. All Rights Reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+
+  <script>
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Update cart count
+    const cart = JSON.parse(localStorage.getItem('ae_cart') || '[]');
+    const count = cart.reduce((s, i) => s + i.qty, 0);
+    document.getElementById('cartCount').textContent = count;
+  </script>
+  <div class="order-track">
+  <strong>Tracking Number:</strong> <span class="track-num"></span>
+  <div class="track-history"></div>
+</div>
+
+</body>
+
+</html>
